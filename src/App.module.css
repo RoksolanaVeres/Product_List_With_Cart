@@ -1,0 +1,21 @@
+.layout__container {
+  background-color: var(--rose-50);
+  display: flex;
+}
+
+.content__container {
+  margin: 0 auto;
+  padding: 35px;
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  max-width: 1300px;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .content__container {
+    padding: 5%;
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,15 @@
+.desserts__container {
+  flex: 3;
+}
+
+.desserts__header {
+  font-size: 2rem;
+  color: var(--rose-900);
+  padding-bottom: 2rem;
+}
+
+.dessertCards__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}

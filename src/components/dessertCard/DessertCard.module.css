@@ -1,0 +1,44 @@
+.dessert__img_btn_container {
+  position: relative;
+}
+
+.dessert__button_container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  bottom: 0;
+}
+
+.dessert__image {
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+.dessert__image_clicked {
+  border: 3px solid var(--red);
+}
+
+.dessert__text_container {
+  padding: 35px 0 10px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.dessert__category {
+  color: var(--rose-300);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.dessert__name {
+  color: var(--rose-900);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.dessert__price {
+  color: var(--red);
+  font-weight: 600;
+  font-size: 1rem;
+}

@@ -1,0 +1,39 @@
+.cart__container {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  flex: 1;
+  height: fit-content;
+}
+
+.cart__header {
+  color: var(--red);
+  font-size: 25px;
+}
+
+.cart__list {
+  list-style-type: none;
+  padding: 25px 0;
+  display: grid;
+  gap: 15px;
+}
+
+.cart__orderTotal_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__orderTotal_text {
+  font-size: 0.8rem;
+}
+
+.cart__orderTotal_sum {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 800px) {
+  .cart__container {
+    min-width: 330px;
+  }
+}
