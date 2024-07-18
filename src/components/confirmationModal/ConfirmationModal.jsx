@@ -4,8 +4,13 @@ import { OrderContext } from "../../store/OrderContext";
 import { OrderConfirmed } from "../icons";
 
 export default function ConfirmationModal({ confirmationModalRef }) {
-  const { order, calculateOrderTotalPrice } = useContext(OrderContext);
+  const { order, startNewOrder, calculateOrderTotalPrice } = useContext(OrderContext);
   const orderTotalPrice = calculateOrderTotalPrice();
+
+  function handleNewOrderClick() {
+    startNewOrder();
+    confirmationModalRef.current.close();
+  }
 
   return (
     <dialog ref={confirmationModalRef} className={classes.dialog__container}>
@@ -23,6 +28,9 @@ export default function ConfirmationModal({ confirmationModalRef }) {
           <p className={classes.dialog__order_total_price}>${orderTotalPrice}</p>
         </div>
       </div>
+      <button className={classes.dialog__order_newOrder_btn} onClick={handleNewOrderClick}>
+        Start New Order
+      </button>
     </dialog>
   );
 }

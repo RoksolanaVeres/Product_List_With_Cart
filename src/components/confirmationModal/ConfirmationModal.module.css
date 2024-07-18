@@ -6,8 +6,13 @@
   margin: 100px auto 0;
   padding: 40px 25px 25px 25px;
   position: absolute;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   height: fit-content;
+  max-height: unset;
+}
+
+.dialog__container::backdrop {
+  background-color: rgba(52, 52, 52, 0.697);
 }
 
 .dialog__header {
@@ -44,6 +49,14 @@
 .dialog__order_total_price {
   font-weight: 700;
   font-size: 1.2rem;
+}
+
+.dialog__order_newOrder_btn {
+  width: 100%;
+  background-color: var(--red);
+  color: white;
+  height: 44px;
+  border-radius: 9999px;
 }
 
 .dialog__orderItem_container {
@@ -99,7 +112,6 @@
 
 @media (min-width: 800px) {
   .dialog__container {
-    margin: 0 auto;
     max-width: 600px;
   }
 }

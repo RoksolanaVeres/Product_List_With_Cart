@@ -1,6 +1,7 @@
 .layout__container {
   background-color: var(--rose-50);
   display: flex;
+  position: relative;
 }
 
 .content__container {
