@@ -1,25 +1,26 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import classes from "./Cart.module.css";
 import { OrderContext } from "../../store/OrderContext";
 import CartItem from "../cartItem/CartItem";
 import { CarbonNeutral, EmptyCart } from "../icons";
+import ConfirmationModal from "../confirmationModal/ConfirmationModal";
 
 export default function Cart() {
-  const { order } = useContext(OrderContext);
+  const { order, calculateOrderTotalPrice } = useContext(OrderContext);
+  const orderTotalPrice = calculateOrderTotalPrice();
+  const confirmationModalRef = useRef(null);
 
   let orderItemsQty = 0;
   order.forEach((item) => (orderItemsQty += item.quantity));
   const cartIsEmpty = orderItemsQty === 0;
 
-  let orderTotal = 0;
-  order.forEach((item) => (orderTotal += item.quantity * item.price));
-
   function handleConfirmOrder() {
-    console.log("confirm");
+    confirmationModalRef.current.showModal();
   }
 
   return (
     <>
+      <ConfirmationModal confirmationModalRef={confirmationModalRef} />
       <div className={classes.cart__container}>
         <h2 className={classes.cart__header}>Your Cart ({orderItemsQty})</h2>
         {cartIsEmpty ? (
@@ -36,7 +37,7 @@ export default function Cart() {
             </ul>
             <div className={classes.cart__orderTotal_container}>
               <p className={classes.cart__orderTotal_text}>Order Total</p>
-              <p className={classes.cart__orderTotal_sum}>${orderTotal}</p>
+              <p className={classes.cart__orderTotal_sum}>${orderTotalPrice}</p>
             </div>
             <div className={classes.cart__delivery}>
               <CarbonNeutral />

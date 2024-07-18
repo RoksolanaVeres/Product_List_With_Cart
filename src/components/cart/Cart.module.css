@@ -55,8 +55,9 @@
 .cart__delivery {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   background-color: var(--rose-100);
   padding: 15px;
   border-radius: 10px;

@@ -40,6 +40,18 @@ export default function OrderContextProvider({ children }) {
     });
   }
 
-  const value = { order, removeItemFromOrder, increaseItemQty, decreaseItemQty };
+  function calculateOrderTotalPrice() {
+    let totalPrice = 0;
+    order.forEach((item) => (totalPrice += item.quantity * item.price));
+    return totalPrice;
+  }
+
+  const value = {
+    order,
+    removeItemFromOrder,
+    increaseItemQty,
+    decreaseItemQty,
+    calculateOrderTotalPrice,
+  };
   return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>;
 }
