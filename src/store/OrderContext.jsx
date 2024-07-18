@@ -24,8 +24,7 @@ export default function OrderContextProvider({ children }) {
     setOrder((prevOrder) => {
       const itemIndex = prevOrder.findIndex((orderItem) => orderItem.name === item.name);
       if (prevOrder[itemIndex].quantity === 1) {
-        const filteredOrder = prevOrder.filter((orderItem) => orderItem.name !== item.name);
-        return filteredOrder;
+        return prevOrder.filter((orderItem) => orderItem.name !== item.name);
       } else {
         const updatedOrder = [...prevOrder];
         const updatedItem = { ...item, quantity: prevOrder[itemIndex].quantity - 1 };
@@ -37,8 +36,7 @@ export default function OrderContextProvider({ children }) {
 
   function removeItemFromOrder(itemToRemove) {
     setOrder((prevOrder) => {
-      const filteredOrder = prevOrder.filter((orderItem) => orderItem.name !== itemToRemove.name);
-      return filteredOrder;
+      return prevOrder.filter((orderItem) => orderItem.name !== itemToRemove.name);
     });
   }
 
