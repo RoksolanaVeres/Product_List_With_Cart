@@ -8,7 +8,7 @@
   height: 44px;
   position: relative;
 
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .addToCart_btn__container[data-clicked="true"] {
@@ -21,6 +21,12 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.addToCart__btn:hover {
+  color: var(--red);
 }
 
 .clicked__btn {
@@ -37,6 +43,25 @@
   place-items: center;
 }
 
+.changeQuantity_icon_container {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  height: 20px;
+  width: 20px;
+  border-radius: var(--radius-full);
+  display: grid;
+  place-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.changeQuantity_btn:hover .changeQuantity_icon_container {
+  border: 1px solid var(--red);
+  background-color: white;
+  color: var(--red);
+}
+
 .clicksQuanity {
   position: absolute;
   left: 50%;
@@ -45,9 +70,7 @@
 }
 
 .changeQuantity_icon {
-  outline: 1px solid white;
-  border-radius: var(--radius-full);
-  outline-offset: 4px;
   width: 10px;
   height: 10px;
+  fill: currentColor;
 }

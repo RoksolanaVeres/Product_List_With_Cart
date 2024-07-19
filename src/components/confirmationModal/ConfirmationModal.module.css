@@ -57,6 +57,12 @@
   color: white;
   height: 44px;
   border-radius: 9999px;
+
+  transition: all 0.3s ease;
+}
+
+.dialog__order_newOrder_btn:hover {
+  background-color: var(--red-dark);
 }
 
 .dialog__orderItem_container {

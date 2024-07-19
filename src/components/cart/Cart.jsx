@@ -75,7 +75,7 @@ export function CartItem({ orderItem }) {
           </div>
         </div>
         <button className={classes.cartItem__remove_btn} onClick={handleRemoveItem}>
-          <RemoveItem />
+          <RemoveItem className={classes.cartItem__remove_icon} />
         </button>
       </div>
       <div className={classes.cartItem__divider}></div>

@@ -9,11 +9,15 @@ export default function AddToCartButton({ clicks, handleIncrement, handleDecreme
       {isClicked ? (
         <div className={classes.clicked__btn}>
           <button onClick={handleDecrement} className={classes.changeQuantity_btn}>
-            <DecrementQuantity className={classes.changeQuantity_icon} />
+            <div className={classes.changeQuantity_icon_container}>
+              <DecrementQuantity className={classes.changeQuantity_icon} />
+            </div>
           </button>
           <span className={classes.clicksQuanity}>{clicks}</span>
           <button onClick={handleIncrement} className={classes.changeQuantity_btn}>
-            <IncrementQuantity className={classes.changeQuantity_icon} />
+            <div className={classes.changeQuantity_icon_container}>
+              <IncrementQuantity className={classes.changeQuantity_icon} />
+            </div>
           </button>
         </div>
       ) : (
