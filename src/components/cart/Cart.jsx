@@ -16,6 +16,10 @@ export default function Cart() {
 
   function handleConfirmOrder() {
     confirmationModalRef.current.showModal();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   return (

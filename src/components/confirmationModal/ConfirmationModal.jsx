@@ -8,6 +8,10 @@ export default function ConfirmationModal({ confirmationModalRef }) {
   const orderTotalPrice = calculateOrderTotalPrice();
 
   function handleNewOrderClick() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     startNewOrder();
     confirmationModalRef.current.close();
   }
