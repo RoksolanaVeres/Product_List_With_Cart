@@ -1,9 +1,9 @@
 import { useContext, useRef } from "react";
 import classes from "./Cart.module.css";
 import { OrderContext } from "../../store/OrderContext";
-import CartItem from "../cartItem/CartItem";
 import { CarbonNeutral, EmptyCart } from "../icons";
 import ConfirmationModal from "../confirmationModal/ConfirmationModal";
+import { RemoveItem } from "../icons";
 
 export default function Cart() {
   const { order, calculateOrderTotalPrice } = useContext(OrderContext);
@@ -53,5 +53,32 @@ export default function Cart() {
         )}
       </div>
     </>
+  );
+}
+
+export function CartItem({ orderItem }) {
+  const { removeItemFromOrder } = useContext(OrderContext);
+
+  function handleRemoveItem() {
+    removeItemFromOrder(orderItem);
+  }
+
+  return (
+    <li className={classes.cartItem__container}>
+      <div className={classes.cartItem__details_btn_container}>
+        <div className={classes.cartItem__details}>
+          <h3 className={classes.cartItem__name}>{orderItem.name}</h3>
+          <div className={classes.cartItem__price_qty_container}>
+            <p className={classes.cartItem__qty}>{orderItem.quantity}x</p>
+            <p className={classes.cartItem__price}>@ ${orderItem.price}</p>
+            <p className={classes.cartItem__price_total}>${orderItem.quantity * orderItem.price}</p>
+          </div>
+        </div>
+        <button className={classes.cartItem__remove_btn} onClick={handleRemoveItem}>
+          <RemoveItem />
+        </button>
+      </div>
+      <div className={classes.cartItem__divider}></div>
+    </li>
   );
 }
