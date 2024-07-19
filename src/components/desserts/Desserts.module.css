@@ -2,14 +2,43 @@
   flex: 3;
 }
 
+.desserts__header_searchBar_container {
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .desserts__header {
   font-size: 2rem;
   color: var(--rose-900);
-  padding-bottom: 2rem;
 }
 
 .dessertCards__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+}
+
+.desserts__noItems_msg {
+  margin: 0 auto;
+  padding: 10% 0;
+}
+
+.desserts__noItems_sorry {
+  display: block;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  letter-spacing: 0.1rem;
+  color: var(--rose-900);
+}
+
+@media (min-width: 900px) {
+  .desserts__header_searchBar_container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+  }
 }
