@@ -34,7 +34,7 @@ export default function Desserts() {
 
         <div className={classes.dessertCards__container}>
           {dessertsToDisplay.map((item) => (
-            <DessertCard key={item.name} dessert={item} />
+            <DessertCard key={item.name} dessert={item} inputText={inputText} />
           ))}
           {dessertsToDisplay.length === 0 && (
             <div className={classes.desserts__noItems_msg}>

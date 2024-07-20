@@ -37,6 +37,10 @@
   font-size: 1rem;
 }
 
+.dessert__name_highlight {
+  background-color: var(--green-light);
+}
+
 .dessert__price {
   color: var(--red);
   font-weight: 600;

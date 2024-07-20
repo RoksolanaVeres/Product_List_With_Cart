@@ -4,7 +4,7 @@ import { useContext } from "react";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import { OrderContext } from "../../store/OrderContext";
 
-export default function DessertCard({ dessert }) {
+export default function DessertCard({ dessert, inputText }) {
   const device = useScreenWidth();
   const { order, increaseItemQty, decreaseItemQty } = useContext(OrderContext);
 
@@ -22,6 +22,11 @@ export default function DessertCard({ dessert }) {
   function handleDecrement() {
     decreaseItemQty(dessert);
   }
+
+  const highlightStartingIndex = dessert.name.toLowerCase().indexOf(inputText.toLowerCase());
+  const highlightedText = dessert.name.substr(highlightStartingIndex, inputText.length);
+  const notHighlightedTextStart = dessert.name.slice(0, highlightStartingIndex);
+  const notHighlightedTextEnd = dessert.name.slice(highlightStartingIndex + inputText.length);
 
   return (
     <div className={classes.dessert__card}>
@@ -43,7 +48,11 @@ export default function DessertCard({ dessert }) {
       </div>
       <div className={classes.dessert__text_container}>
         <h3 className={classes.dessert__category}>{dessert.category}</h3>
-        <h2 className={classes.dessert__name}>{dessert.name}</h2>
+        <h2 className={classes.dessert__name}>
+          {notHighlightedTextStart}
+          <span className={classes.dessert__name_highlight}>{highlightedText}</span>
+          {notHighlightedTextEnd}
+        </h2>
         <p className={classes.dessert__price}>${dessert.price}</p>
       </div>
     </div>
