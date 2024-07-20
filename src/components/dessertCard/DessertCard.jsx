@@ -2,11 +2,11 @@ import classes from "./DessertCard.module.css";
 import AddToCartButton from "../addToCartButton/AddToCartButton";
 import { useContext } from "react";
 import useScreenWidth from "../../hooks/useScreenWidth";
-import { OrderContext } from "../../store/OrderContext";
+import useOrder from "../../hooks/useOrder";
 
 export default function DessertCard({ dessert, inputText }) {
   const device = useScreenWidth();
-  const { order, increaseItemQty, decreaseItemQty } = useContext(OrderContext);
+  const { order, increaseItemQty, decreaseItemQty } = useOrder();
 
   const dessertOrderIndex = order.findIndex((item) => item.name === dessert.name);
 

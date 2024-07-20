@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import classes from "./ConfirmationModal.module.css";
-import { OrderContext } from "../../store/OrderContext";
+import useOrder from "../../hooks/useOrder";
 import { OrderConfirmed } from "../icons";
 
 export default function ConfirmationModal({ confirmationModalRef }) {
-  const { order, startNewOrder, calculateOrderTotalPrice } = useContext(OrderContext);
+  const { order, startNewOrder, calculateOrderTotalPrice } = useOrder();
   const orderTotalPrice = calculateOrderTotalPrice();
 
   function handleNewOrderClick() {

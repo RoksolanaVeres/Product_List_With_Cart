@@ -1,12 +1,12 @@
 import { useContext, useRef } from "react";
 import classes from "./Cart.module.css";
-import { OrderContext } from "../../store/OrderContext";
 import { CarbonNeutral, EmptyCart } from "../icons";
 import ConfirmationModal from "../confirmationModal/ConfirmationModal";
 import { RemoveItem } from "../icons";
+import useOrder from "../../hooks/useOrder";
 
 export default function Cart() {
-  const { order, calculateOrderTotalPrice } = useContext(OrderContext);
+  const { order, calculateOrderTotalPrice } = useOrder();
   const orderTotalPrice = calculateOrderTotalPrice();
   const confirmationModalRef = useRef(null);
 
@@ -61,7 +61,7 @@ export default function Cart() {
 }
 
 export function CartItem({ orderItem }) {
-  const { removeItemFromOrder } = useContext(OrderContext);
+  const { removeItemFromOrder } = useOrder();
 
   function handleRemoveItem() {
     removeItemFromOrder(orderItem);
